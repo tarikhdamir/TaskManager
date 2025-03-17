@@ -3,11 +3,13 @@
 A task management system built with ASP.NET Core, Entity Framework Core, and MediatR.
 
 ## 📌 Features
-- Task CRUD (Create, Read, Update, Delete)
-- Soft Delete (Mark as deleted instead of removing from DB)
-- Status Management: `Новая`, `В работе`, `Выполнена`
-- User Assignment
-- Filter Tasks by Status, Assignee, and Date
+- ✅ **Task CRUD** (Create, Read, Update, Delete)
+- ✅ **Soft Delete** (Mark tasks as deleted instead of removing from DB)
+- ✅ **Task Status Management**: `Новая`, `В работе`, `Выполнена`
+- ✅ **Update Task Details** (Title, Description, Assigned User)
+- ✅ **Assign User to a Task**
+- ✅ **Filter Tasks** by Status, Assignee, and Creation Date
+
 
 ## 🚀 Installation & Setup
 
@@ -50,6 +52,23 @@ Request Body:
 ```http
 GET /api/task
 ```
+
+### ✅ Update Task
+```http
+PUT /api/task/{taskId}
+```
+Request Body:
+
+```JSON
+{
+  "taskId": 1,
+  "title": "Updated Task Title",
+  "description": "Updated task description",
+  "status": "В работе",
+  "assignedUserId": 2
+}
+```
+
 ### ✅ Update Task Status
 ```http
 PATCH /api/task/{taskId}/status
@@ -60,6 +79,18 @@ Request Body:
 {
   "taskId": 1,
   "status": "Выполнена"
+}
+```
+### ✅ Assign User to a Task
+```http
+PATCH /api/task/{taskId}/assign
+```
+Request Body:
+
+```JSON
+{
+  "taskId": 1,
+  "userId": 3
 }
 ```
 ### ✅ Soft Delete Task
