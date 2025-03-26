@@ -1,6 +1,6 @@
 ﻿# TaskManager API
 
-A task management system built with ASP.NET Core, Entity Framework Core, and MediatR.
+A task management system built with ASP.NET Core, Entity Framework Core, and MediatR, with a Vue.js frontend.
 
 ## 📌 Features
 - ✅ **Task CRUD** (Create, Read, Update, Delete)
@@ -9,6 +9,7 @@ A task management system built with ASP.NET Core, Entity Framework Core, and Med
 - ✅ **Update Task Details** (Title, Description, Assigned User)
 - ✅ **Assign User to a Task**
 - ✅ **Filter Tasks** by Status, Assignee, and Creation Date
+- ✅ **Frontend UI** built with Vue.js for managing tasks visually
 
 
 ## 🚀 Installation & Setup
@@ -28,9 +29,16 @@ dotnet ef database update
 ```
 ### **4️⃣ Run the Project**
 ```sh
-dotnet run --project API
+dotnet run --project API.csproj --launch-profile "https"
 ```
-The API will be available at https://localhost:5001.
+The API will be available at https://localhost:7129.
+### **5️⃣ Set Up the Frontend (Vue.js)**
+```sh
+cd taskmanager-ui
+npm install
+npm run dev
+```
+The frontend will be available at http://localhost:5173.
 
 ## 📖 API Endpoints
 
@@ -44,7 +52,7 @@ Request Body:
 {
   "title": "Документация",
   "description": "Написать README",
-  "status": "В работе",
+  "status": "In Progress",
   "assignedUserId": 2
 }
 ```
@@ -64,7 +72,7 @@ Request Body:
   "taskId": 1,
   "title": "Updated Task Title",
   "description": "Updated task description",
-  "status": "В работе",
+  "status": "In Progress",
   "assignedUserId": 2
 }
 ```
@@ -78,7 +86,7 @@ Request Body:
 ```JSON
 {
   "taskId": 1,
-  "status": "Выполнена"
+  "status": "Completed"
 }
 ```
 ### ✅ Assign User to a Task
@@ -102,8 +110,9 @@ DELETE /api/task/{taskId}
 - **Entity Framework Core** - ORM for database management.
 - **SQLite** - Lightweight relational database.
 - **MediatR** - Implements CQRS and simplifies request handling.
+- **Vue.js (Vite)** - Frontend framework for building interactive UI.
+- **Axios** - HTTP client for API requests.
 - **xUnit & Moq** - Used for unit testing.
-
 
 📌 License
 Distributed under the Unlicense License. See ```LICENSE.txt``` for more information.

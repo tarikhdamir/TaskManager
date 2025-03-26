@@ -13,7 +13,7 @@ public class UpdateTaskStatusCommand : IRequest<bool>
 public class UpdateTaskStatusHandler : IRequestHandler<UpdateTaskStatusCommand, bool>
 {
     private readonly AppDbContext _context;
-    private static readonly HashSet<string> AllowedStatuses = new() { "Новая", "В работе", "Выполнена" };
+    private static readonly HashSet<string> AllowedStatuses = new() { "New", "In Progress", "Completed" };
 
     public UpdateTaskStatusHandler(AppDbContext context)
     {
@@ -23,7 +23,7 @@ public class UpdateTaskStatusHandler : IRequestHandler<UpdateTaskStatusCommand, 
     public async Task<bool> Handle(UpdateTaskStatusCommand request, CancellationToken cancellationToken)
     {
         if (!AllowedStatuses.Contains(request.Status))
-            throw new ArgumentException($"Недопустимый статус задачи: {request.Status}. Разрешены: Новая, В работе, Выполнена.");
+            throw new ArgumentException($"Недопустимый статус задачи: {request.Status}. Разрешены: New, In Progress, Completed.");
 
         var task = await _context.Tasks.FirstOrDefaultAsync(t => t.Id == request.TaskId, cancellationToken);
         if (task == null)

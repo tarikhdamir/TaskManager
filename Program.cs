@@ -10,6 +10,7 @@ using TaskManager.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -20,14 +21,15 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(MyAllowSpecificOrigins,
+    options.AddPolicy(name: MyAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000") // React app URL
+            policy.WithOrigins("http://localhost:5173") // Vue frontend URL
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
 });
+
 
 var app = builder.Build();
 
