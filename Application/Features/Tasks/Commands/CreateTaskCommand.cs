@@ -27,7 +27,7 @@ public class CreateTaskHandler : IRequestHandler<CreateTaskCommand, int>
         {
             Title = request.Title,
             Description = request.Description,
-            Status = string.IsNullOrEmpty(request.Status) ? "Новая" : request.Status, 
+            Status = string.IsNullOrEmpty(request.Status) ? "New" : request.Status, 
             AssignedUserId = request.AssignedUserId
         };
 

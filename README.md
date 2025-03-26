@@ -5,7 +5,7 @@ A task management system built with ASP.NET Core, Entity Framework Core, and Med
 ## 📌 Features
 - ✅ **Task CRUD** (Create, Read, Update, Delete)
 - ✅ **Soft Delete** (Mark tasks as deleted instead of removing from DB)
-- ✅ **Task Status Management**: `Новая`, `В работе`, `Выполнена`
+- ✅ **Task Status Management**: `New`, `In Progress`, `Completed`
 - ✅ **Update Task Details** (Title, Description, Assigned User)
 - ✅ **Assign User to a Task**
 - ✅ **Filter Tasks** by Status, Assignee, and Creation Date
