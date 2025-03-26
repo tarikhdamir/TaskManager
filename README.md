@@ -16,7 +16,7 @@ A task management system built with ASP.NET Core, Entity Framework Core, and Med
 
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/TaskManager.git
+git clone https://github.com/tarikhdamir/TaskManager.git
 cd TaskManager
 ```
 ### **2️⃣ Install Dependencies**
